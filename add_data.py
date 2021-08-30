@@ -32,7 +32,7 @@ def createDB(dbName:str)->None:
 
     """
     conn, cur = DBConnect()
-    cur.execute(f"CREATE DATABASE IF NOT EXISTS {dbName} CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci; USE {dbName};", multi=True)
+    cur.execute(f"CREATE DATABASE IF NOT EXISTS {dbName} CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci;")
     conn.commit()
     cur.close()
 
@@ -158,6 +158,6 @@ if __name__ == "__main__":
     createDB(dbName='stream_test')
     createTables(dbName='stream_test')
 
-    df = pd.read_csv('data/*.csv')
+#     df = pd.read_csv('data/*.csv')
 
-    insert_to_transaction_table(dbName='stream_test', df=df, table_name='transaction')
+#     insert_to_transaction_table(dbName='stream_test', df=df, table_name='transaction')
