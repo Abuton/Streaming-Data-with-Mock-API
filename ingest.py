@@ -1,16 +1,11 @@
 import requests
-import ast
-# import psycopg2
 from add_data import DBConnect
 
-conn, cur = DBConnect()
-cur.execute("USE stream_test;")
+conn, cur = DBConnect(dbName='streamingDB')
+cur.execute("USE streamingDB;")
 
-with requests.get("http://127.0.0.1:5000/large_datastore/100", stream=1) as data:
+with requests.get("http://127.0.0.1:5000/large_datastore/10000", stream=1) as data:
 
-    # conn = psycopg2.connect(dbname="stream_test", user='postgres', password='postgres')
-
-    # cur = conn.cursor()
     sql = "INSERT INTO transaction (txid, uid, amount) VALUES (%s, %s, %s)"
 
     buffer = ""
