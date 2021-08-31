@@ -155,8 +155,8 @@ def db_execute_fetch(*args, many=False, tablename='', rdf=True, **kwargs)->pd.Da
 
 
 if __name__ == "__main__":
-    createDB(dbName='stream_test')
-    createTables(dbName='stream_test')
+    createDB(dbName='streamingDB')
+    createTables(dbName='streamingDB')
 
 #     df = pd.read_csv('data/*.csv')
 
